@@ -19,6 +19,8 @@ const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in
 
 const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; void main() { color = vec4(1.0f, 0.5f, 0.2f, 1.0f);}\0";
 
+const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; void main() { color = vec4(1.0f, 0.0f, 0.2f, 1.0f);}\0";
+
 int main()
 {
     glfwInit();
@@ -77,6 +79,17 @@ int main()
         std::cout << infoLog << std::endl;
     }
     
+    GLuint fragmentShader2 = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader2, 1, &fragmentShaderSource2, NULL);
+    glCompileShader(fragmentShader2);
+    
+    glGetShaderiv(fragmentShader2, GL_COMPILE_STATUS, &success);
+    
+    if (!success) {
+        glGetShaderInfoLog(fragmentShader2, 512, NULL, infoLog);
+        std::cout << infoLog << std::endl;
+    }
+    
     GLuint program = glCreateProgram();
     glAttachShader(program, vertexShader);
     glAttachShader(program, fragmentShader);
@@ -90,8 +103,22 @@ int main()
     }
     
     
+    GLuint program2 = glCreateProgram();
+    glAttachShader(program2, vertexShader);
+    glAttachShader(program2, fragmentShader2);
+    glLinkProgram(program2);
+    
+    glGetProgramiv(program2, GL_LINK_STATUS, &success);
+    
+    if (!success) {
+        glGetProgramInfoLog(program2, 512, NULL, infoLog);
+        std::cout << infoLog << std::endl;
+    }
+    
+    
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+    glDeleteShader(fragmentShader2);
     
     
     GLfloat vertices[] = {
@@ -163,6 +190,8 @@ int main()
         glBindVertexArray(VAO);
         
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        
+        glUseProgram(program2);
         
         glBindVertexArray(VAO2);
         
