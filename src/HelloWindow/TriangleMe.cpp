@@ -16,9 +16,9 @@
 
 const GLint WIDTH = 800, HEIGHT = 600;
 
-const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in vec3 position; out vec4 vertexColor; void main() {gl_Position = vec4(position.x, position.y, position.z, 1.0); vertexColor = vec4(0.4, 0.5, 1.0, 1.0);}\0";
+const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in vec3 position; layout(location = 1) in vec3 color;out vec3 vertexColor; void main() {gl_Position = vec4(position.x, position.y, position.z, 1.0); vertexColor = color;}\0";
 
-const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; in vec4 vertexColor;void main() { color = vertexColor;}\0";
+const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; in vec3 vertexColor;void main() { color = vec4(vertexColor, 1.0);}\0";
 
 const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; uniform vec4 ourColor; void main() { color = ourColor;}\0";
 
@@ -123,9 +123,9 @@ int main()
     
     
     GLfloat vertices[] = {
-        -0.5, -0.5, 0.0,
-        0.5, -0.5, 0.0,
-        0.0, 0.0, 0.0
+        -0.5, -0.5, 0.0,    1.0, 0.0, 0.0,
+        0.5, -0.5, 0.0,     0.0, 1.0, 0.0,
+        0.0, 0.0, 0.0,      0.0, 0.0, 1.0
     };
     
     
@@ -141,14 +141,15 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
     
     glEnableVertexAttribArray(0);
     
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    
+    glEnableVertexAttribArray(1);
+    
     glBindVertexArray(0);
-    
-    
-    
     
     
     GLfloat vertices2[] = {
