@@ -18,13 +18,13 @@
 		E515C1731D4ECF52005D606D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E515C1601D4EC631005D606D /* CoreVideo.framework */; };
 		E515C1741D4ECF52005D606D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E515C15E1D4EC61C005D606D /* Cocoa.framework */; };
 		E515C1751D4ECF52005D606D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E515C15C1D4EC617005D606D /* Foundation.framework */; };
-		E515C17D1D4ECFA2005D606D /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E515C17B1D4ECF82005D606D /* Triangle.cpp */; };
 		E55EA74A1D4F83590002078B /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA7491D4F83590002078B /* libglfw3.3.2.dylib */; };
 		E55EA74D1D4F93200002078B /* libGLEWmx.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */; };
 		E55EA74F1D4F93440002078B /* libGLEW.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */; };
 		E55EA7501D4F96700002078B /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA7491D4F83590002078B /* libglfw3.3.2.dylib */; };
 		E55EA7511D4F96800002078B /* libGLEWmx.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */; };
 		E55EA7521D4F96800002078B /* libGLEW.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */; };
+		E55EA77B1D5037820002078B /* TriangleMe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E55EA77A1D5037820002078B /* TriangleMe.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +61,7 @@
 		E55EA7491D4F83590002078B /* libglfw3.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw3.3.2.dylib; path = /usr/local/Cellar/glfw3/3.2/lib/libglfw3.3.2.dylib; sourceTree = "<absolute>"; };
 		E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEWmx.1.13.0.dylib; path = ../../../../../../usr/local/Cellar/glew/1.13.0/lib/libGLEWmx.1.13.0.dylib; sourceTree = "<group>"; };
 		E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.13.0.dylib; path = ../../../../../../usr/local/Cellar/glew/1.13.0/lib/libGLEW.1.13.0.dylib; sourceTree = "<group>"; };
+		E55EA77A1D5037820002078B /* TriangleMe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleMe.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +123,7 @@
 			children = (
 				E515C1551D4EC3BB005D606D /* main.cpp */,
 				E515C17B1D4ECF82005D606D /* Triangle.cpp */,
+				E55EA77A1D5037820002078B /* TriangleMe.cpp */,
 			);
 			path = HelloWindow;
 			sourceTree = "<group>";
@@ -221,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E515C17D1D4ECFA2005D606D /* Triangle.cpp in Sources */,
+				E55EA77B1D5037820002078B /* TriangleMe.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
