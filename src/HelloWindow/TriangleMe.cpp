@@ -15,9 +15,9 @@
 
 const GLint WIDTH = 800, HEIGHT = 600;
 
-const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in vec3 position; void main() {gl_Position = vec4(position.x, position.y, position.z, 1.0);}\0";
+const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in vec3 position; out vec4 vertexColor; void main() {gl_Position = vec4(position.x, position.y, position.z, 1.0); vertexColor = vec4(0.4, 0.5, 1.0, 1.0);}\0";
 
-const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; void main() { color = vec4(1.0f, 0.5f, 0.2f, 1.0f);}\0";
+const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; in vec4 vertexColor;void main() { color = vertexColor;}\0";
 
 const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; void main() { color = vec4(1.0f, 0.0f, 0.2f, 1.0f);}\0";
 
