@@ -1,5 +1,5 @@
 //
-//  TriangleMe.cpp
+//  Textures.cpp
 //  HelloWindow
 //
 //  Created by liyipeng on 16/8/2.
@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
- #include <math.h>
+#include <math.h>
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -61,8 +61,6 @@ int main()
     };
     
     
-    
-    
     GLuint VBO, VAO;
     
     glGenVertexArrays(1, &VAO);
@@ -84,28 +82,6 @@ int main()
     glBindVertexArray(0);
     
     
-    GLfloat vertices2[] = {
-        0.0, 0.0, 0.0,
-        0.5, 0.0, 0.0,
-        0.5, 0.5, 0.0
-    };
-    
-    GLuint VBO2, VAO2;
-    
-    glGenVertexArrays(1, &VAO2);
-    glGenBuffers(1, &VBO2);
-    
-    glBindVertexArray(VAO2);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, VBO2);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
-    
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-    
-    glEnableVertexAttribArray(0);
-    
-    glBindVertexArray(0);
-    
     shader.use();
     
     GLint xOffsetLocation = glGetUniformLocation(shader.program, "xOffset");
@@ -114,35 +90,14 @@ int main()
     
     while (!glfwWindowShouldClose(window)) {
         
-       
+        
         glfwPollEvents();
         
         glClearColor(0.2, 0.3, 0.3, 1.0);
         
         glClear(GL_COLOR_BUFFER_BIT);
         
-        shader.use();
         
-        glBindVertexArray(VAO);
-        
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        
-        
-        GLfloat timeValue = glfwGetTime();
-        
-        GLfloat greenValue = (sin(timeValue)/2) + 0.5;
-        
-        GLint vertexColorLocation = glGetUniformLocation(shader2.program, "ourColor");
-        
-        shader2.use();
-        
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0, 1.0);
-        
-        glBindVertexArray(VAO2);
-        
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        
-        glBindVertexArray(0);
         
         glfwSwapBuffers(window);
         
@@ -157,46 +112,3 @@ int main()
     return 0;
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
