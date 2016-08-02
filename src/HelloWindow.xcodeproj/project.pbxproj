@@ -25,6 +25,7 @@
 		E55EA7511D4F96800002078B /* libGLEWmx.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */; };
 		E55EA7521D4F96800002078B /* libGLEW.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */; };
 		E55EA77B1D5037820002078B /* TriangleMe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E55EA77A1D5037820002078B /* TriangleMe.cpp */; };
+		E5FB95ED1D50BD1800550ED3 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5FB95EB1D50BD1800550ED3 /* Shader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,11 @@
 		E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEWmx.1.13.0.dylib; path = ../../../../../../usr/local/Cellar/glew/1.13.0/lib/libGLEWmx.1.13.0.dylib; sourceTree = "<group>"; };
 		E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.13.0.dylib; path = ../../../../../../usr/local/Cellar/glew/1.13.0/lib/libGLEW.1.13.0.dylib; sourceTree = "<group>"; };
 		E55EA77A1D5037820002078B /* TriangleMe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleMe.cpp; sourceTree = "<group>"; };
+		E5FB95EB1D50BD1800550ED3 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		E5FB95EC1D50BD1800550ED3 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		E5FB95EE1D50C25A00550ED3 /* triangle.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.vsh; sourceTree = "<group>"; };
+		E5FB95EF1D50C26E00550ED3 /* triangle.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.fsh; sourceTree = "<group>"; };
+		E5FB95F01D50C2E800550ED3 /* triangle2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle2.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 		E515C1541D4EC3BB005D606D /* HelloWindow */ = {
 			isa = PBXGroup;
 			children = (
+				E5FB95EA1D50BCFE00550ED3 /* Shaders */,
 				E515C1551D4EC3BB005D606D /* main.cpp */,
 				E515C17B1D4ECF82005D606D /* Triangle.cpp */,
 				E55EA77A1D5037820002078B /* TriangleMe.cpp */,
@@ -139,6 +146,18 @@
 				E515C15C1D4EC617005D606D /* Foundation.framework */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		E5FB95EA1D50BCFE00550ED3 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E5FB95EB1D50BD1800550ED3 /* Shader.cpp */,
+				E5FB95EC1D50BD1800550ED3 /* Shader.hpp */,
+				E5FB95EE1D50C25A00550ED3 /* triangle.vsh */,
+				E5FB95EF1D50C26E00550ED3 /* triangle.fsh */,
+				E5FB95F01D50C2E800550ED3 /* triangle2.fsh */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5FB95ED1D50BD1800550ED3 /* Shader.cpp in Sources */,
 				E55EA77B1D5037820002078B /* TriangleMe.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

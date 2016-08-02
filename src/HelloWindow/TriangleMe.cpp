@@ -14,13 +14,15 @@
 
 #include <GLFW/glfw3.h>
 
+#include "Shaders/Shader.hpp"
+
 const GLint WIDTH = 800, HEIGHT = 600;
 
-const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in vec3 position; layout(location = 1) in vec3 color;out vec3 vertexColor; void main() {gl_Position = vec4(position.x, position.y, position.z, 1.0); vertexColor = color;}\0";
-
-const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; in vec3 vertexColor;void main() { color = vec4(vertexColor, 1.0);}\0";
-
-const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; uniform vec4 ourColor; void main() { color = ourColor;}\0";
+//const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in vec3 position; layout(location = 1) in vec3 color;out vec3 vertexColor; void main() {gl_Position = vec4(position.x, position.y, position.z, 1.0); vertexColor = color;}\0";
+//
+//const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; in vec3 vertexColor;void main() { color = vec4(vertexColor, 1.0);}\0";
+//
+//const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; uniform vec4 ourColor; void main() { color = ourColor;}\0";
 
 int main()
 {
@@ -54,73 +56,9 @@ int main()
     
     glViewport(0, 0, width, height);
     
+    Shader shader = Shader("/Users/liyipeng/Documents/learn/learnopengl/src/HelloWindow/Shaders/triangle.vsh", "/Users/liyipeng/Documents/learn/learnopengl/src/HelloWindow/Shaders/triangle.fsh");
     
-    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-    
-    GLint success;
-    GLchar infoLog[512];
-    
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    
-    if (!success) {
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-    
-    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-    
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-    
-    if (!success) {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-    
-    GLuint fragmentShader2 = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader2, 1, &fragmentShaderSource2, NULL);
-    glCompileShader(fragmentShader2);
-    
-    glGetShaderiv(fragmentShader2, GL_COMPILE_STATUS, &success);
-    
-    if (!success) {
-        glGetShaderInfoLog(fragmentShader2, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-    
-    GLuint program = glCreateProgram();
-    glAttachShader(program, vertexShader);
-    glAttachShader(program, fragmentShader);
-    glLinkProgram(program);
-    
-    glGetProgramiv(program, GL_LINK_STATUS, &success);
-    
-    if (!success) {
-        glGetProgramInfoLog(program, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-    
-    
-    GLuint program2 = glCreateProgram();
-    glAttachShader(program2, vertexShader);
-    glAttachShader(program2, fragmentShader2);
-    glLinkProgram(program2);
-    
-    glGetProgramiv(program2, GL_LINK_STATUS, &success);
-    
-    if (!success) {
-        glGetProgramInfoLog(program2, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
-    }
-    
-    
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-    glDeleteShader(fragmentShader2);
-    
+    Shader shader2 = Shader("/Users/liyipeng/Documents/learn/learnopengl/src/HelloWindow/Shaders/triangle.vsh", "/Users/liyipeng/Documents/learn/learnopengl/src/HelloWindow/Shaders/triangle2.fsh");
     
     GLfloat vertices[] = {
         -0.5, -0.5, 0.0,    1.0, 0.0, 0.0,
@@ -185,7 +123,7 @@ int main()
         
         glClear(GL_COLOR_BUFFER_BIT);
         
-        glUseProgram(program);
+        shader.use();
         
         glBindVertexArray(VAO);
         
@@ -196,9 +134,9 @@ int main()
         
         GLfloat greenValue = (sin(timeValue)/2) + 0.5;
         
-        GLint vertexColorLocation = glGetUniformLocation(program2, "ourColor");
+        GLint vertexColorLocation = glGetUniformLocation(shader2.program, "ourColor");
         
-        glUseProgram(program2);
+        shader2.use();
         
         glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0, 1.0);
         
