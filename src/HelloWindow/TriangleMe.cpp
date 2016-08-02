@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+ #include <math.h>
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -19,7 +20,7 @@ const GLchar *vertexShaderSource = "#version 330 core\n layout (location = 0) in
 
 const GLchar *fragmentShaderSource = "#version 330 core\n out vec4 color; in vec4 vertexColor;void main() { color = vertexColor;}\0";
 
-const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; void main() { color = vec4(1.0f, 0.0f, 0.2f, 1.0f);}\0";
+const GLchar *fragmentShaderSource2 = "#version 330 core\n out vec4 color; uniform vec4 ourColor; void main() { color = ourColor;}\0";
 
 int main()
 {
@@ -172,12 +173,10 @@ int main()
     
     glBindVertexArray(0);
     
-    
-    
-    
-   
-    
     while (!glfwWindowShouldClose(window)) {
+        
+       
+        
         
         glfwPollEvents();
         
@@ -191,7 +190,16 @@ int main()
         
         glDrawArrays(GL_TRIANGLES, 0, 3);
         
+        
+        GLfloat timeValue = glfwGetTime();
+        
+        GLfloat greenValue = (sin(timeValue)/2) + 0.5;
+        
+        GLint vertexColorLocation = glGetUniformLocation(program2, "ourColor");
+        
         glUseProgram(program2);
+        
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0, 1.0);
         
         glBindVertexArray(VAO2);
         
