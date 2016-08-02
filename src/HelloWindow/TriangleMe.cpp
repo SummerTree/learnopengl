@@ -112,11 +112,18 @@ int main()
     
     glBindVertexArray(0);
     
+    
+//    xOffset
+    
+    shader.use();
+    
+    GLint xOffsetLocation = glGetUniformLocation(shader.program, "xOffset");
+    
+    glUniform1f(xOffsetLocation, -0.5);
+    
     while (!glfwWindowShouldClose(window)) {
         
        
-        
-        
         glfwPollEvents();
         
         glClearColor(0.2, 0.3, 0.3, 1.0);
