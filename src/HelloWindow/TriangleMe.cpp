@@ -94,11 +94,17 @@ int main()
     glDeleteShader(fragmentShader);
     
     
+   
+    
+    
     GLfloat vertices[] = {
         -0.5, -0.5, 0.0,
         0.5, -0.5, 0.0,
+        -0.5, 0.5, 0.0,
+        0.5, -0.5, 0.0,
         0.5, 0.5, 0.0,
         -0.5, 0.5, 0.0
+        
     };
     
     GLuint indices[] = {
@@ -106,7 +112,6 @@ int main()
         1, 2, 3
         
     };
-    
     
     GLuint VBO, VAO, EBO;
     
@@ -129,8 +134,10 @@ int main()
     
     glBindVertexArray(0);
     
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
+    bool b = true;
+    
+    int i = 0;
     
     while (!glfwWindowShouldClose(window)) {
         
@@ -144,9 +151,24 @@ int main()
         
         glBindVertexArray(VAO);
         
+        if (b) {
+            glDrawArrays(GL_TRIANGLES, 0, 3);
+        } else {
+            glDrawArrays(GL_TRIANGLES, 3, 3);
+        }
         
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-//        glDrawArrays(GL_TRIANGLES, 0, 3);
+        i++;
+        
+        if (i > 100) {
+            b = !b;
+            i = 0;
+        }
+        
+        
+        
+//        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        
+        
         
         glBindVertexArray(0);
         
