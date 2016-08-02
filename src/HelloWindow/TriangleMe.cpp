@@ -112,9 +112,6 @@ int main()
     
     glBindVertexArray(0);
     
-    
-//    xOffset
-    
     shader.use();
     
     GLint xOffsetLocation = glGetUniformLocation(shader.program, "xOffset");
