@@ -63,7 +63,7 @@ Shader::Shader(const GLchar *vertextPath, const GLchar *fragmentPath)
     
     if (!success) {
         glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
+        std::cout << vertextPath <<infoLog << std::endl;
     }
     
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
@@ -75,7 +75,7 @@ Shader::Shader(const GLchar *vertextPath, const GLchar *fragmentPath)
     
     if (!success) {
         glGetShaderInfoLog(fragment, 512, NULL, infoLog);
-        std::cout << infoLog << std::endl;
+        std::cout << fragmentPath << infoLog << std::endl;
     }
     
     
