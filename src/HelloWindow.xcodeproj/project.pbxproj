@@ -24,7 +24,6 @@
 		E55EA7501D4F96700002078B /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA7491D4F83590002078B /* libglfw3.3.2.dylib */; };
 		E55EA7511D4F96800002078B /* libGLEWmx.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */; };
 		E55EA7521D4F96800002078B /* libGLEW.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */; };
-		E5AC77391D5163CF004D600D /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AC77371D5163CF004D600D /* libSOIL.a */; };
 		E5AC774A1D516876004D600D /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77411D516876004D600D /* image_DXT.c */; };
 		E5AC774B1D516876004D600D /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77431D516876004D600D /* image_helper.c */; };
 		E5AC774C1D516876004D600D /* SOIL.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77451D516876004D600D /* SOIL.c */; };
@@ -70,7 +69,6 @@
 		E55EA77A1D5037820002078B /* TriangleMe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleMe.cpp; sourceTree = "<group>"; };
 		E57CCBC21D50CA5F00502063 /* pipeline.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = pipeline.md; sourceTree = "<group>"; };
 		E57CCBC31D50CA8600502063 /* shaderbasic.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = shaderbasic.md; sourceTree = "<group>"; };
-		E5AC77371D5163CF004D600D /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSOIL.a; sourceTree = "<group>"; };
 		E5AC77381D5163CF004D600D /* SOIL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOIL.h; sourceTree = "<group>"; };
 		E5AC773A1D51649E004D600D /* Textures.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Textures.vsh; sourceTree = "<group>"; };
 		E5AC773B1D5164AD004D600D /* Textures.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Textures.fsh; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			files = (
 				E55EA74F1D4F93440002078B /* libGLEW.1.13.0.dylib in Frameworks */,
 				E55EA74D1D4F93200002078B /* libGLEWmx.1.13.0.dylib in Frameworks */,
-				E5AC77391D5163CF004D600D /* libSOIL.a in Frameworks */,
 				E55EA74A1D4F83590002078B /* libglfw3.3.2.dylib in Frameworks */,
 				E515C1711D4ECF52005D606D /* OpenGL.framework in Frameworks */,
 				E515C1721D4ECF52005D606D /* IOKit.framework in Frameworks */,
@@ -196,7 +193,6 @@
 				E5AC77471D516876004D600D /* stb_image_aug.h */,
 				E5AC77481D516876004D600D /* stbi_DDS_aug_c.h */,
 				E5AC77491D516876004D600D /* stbi_DDS_aug.h */,
-				E5AC77371D5163CF004D600D /* libSOIL.a */,
 			);
 			name = SOIL;
 			path = HelloWindow/SOIL;
