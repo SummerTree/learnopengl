@@ -24,12 +24,12 @@
 		E55EA7501D4F96700002078B /* libglfw3.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA7491D4F83590002078B /* libglfw3.3.2.dylib */; };
 		E55EA7511D4F96800002078B /* libGLEWmx.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74C1D4F93200002078B /* libGLEWmx.1.13.0.dylib */; };
 		E55EA7521D4F96800002078B /* libGLEW.1.13.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E55EA74E1D4F93440002078B /* libGLEW.1.13.0.dylib */; };
+		E57F94D61D55FF5800D38BFC /* Transformations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E57F94D51D55FF5800D38BFC /* Transformations.cpp */; };
 		E5AC774A1D516876004D600D /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77411D516876004D600D /* image_DXT.c */; };
 		E5AC774B1D516876004D600D /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77431D516876004D600D /* image_helper.c */; };
 		E5AC774C1D516876004D600D /* SOIL.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77451D516876004D600D /* SOIL.c */; };
 		E5AC774D1D516876004D600D /* stb_image_aug.c in Sources */ = {isa = PBXBuildFile; fileRef = E5AC77461D516876004D600D /* stb_image_aug.c */; };
 		E5FB95ED1D50BD1800550ED3 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5FB95EB1D50BD1800550ED3 /* Shader.cpp */; };
-		E5FB95F21D50C78300550ED3 /* Textures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5FB95F11D50C78300550ED3 /* Textures.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +69,7 @@
 		E55EA77A1D5037820002078B /* TriangleMe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleMe.cpp; sourceTree = "<group>"; };
 		E57CCBC21D50CA5F00502063 /* pipeline.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = pipeline.md; sourceTree = "<group>"; };
 		E57CCBC31D50CA8600502063 /* shaderbasic.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = shaderbasic.md; sourceTree = "<group>"; };
+		E57F94D51D55FF5800D38BFC /* Transformations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformations.cpp; sourceTree = "<group>"; };
 		E5AC77381D5163CF004D600D /* SOIL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOIL.h; sourceTree = "<group>"; };
 		E5AC773A1D51649E004D600D /* Textures.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Textures.vsh; sourceTree = "<group>"; };
 		E5AC773B1D5164AD004D600D /* Textures.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Textures.fsh; sourceTree = "<group>"; };
@@ -214,6 +215,7 @@
 				E515C17B1D4ECF82005D606D /* Triangle.cpp */,
 				E55EA77A1D5037820002078B /* TriangleMe.cpp */,
 				E5FB95F11D50C78300550ED3 /* Textures.cpp */,
+				E57F94D51D55FF5800D38BFC /* Transformations.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -316,9 +318,9 @@
 			files = (
 				E5AC774C1D516876004D600D /* SOIL.c in Sources */,
 				E5FB95ED1D50BD1800550ED3 /* Shader.cpp in Sources */,
+				E57F94D61D55FF5800D38BFC /* Transformations.cpp in Sources */,
 				E5AC774B1D516876004D600D /* image_helper.c in Sources */,
 				E5AC774D1D516876004D600D /* stb_image_aug.c in Sources */,
-				E5FB95F21D50C78300550ED3 /* Textures.cpp in Sources */,
 				E5AC774A1D516876004D600D /* image_DXT.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +450,11 @@
 		E515C1781D4ECF52005D606D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/glfw3/3.2/include,
+					/usr/local/Cellar/glew/1.13.0/include,
+					/usr/local/Cellar/glm/0.9.7.4/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/1.13.0/lib,
@@ -464,6 +471,11 @@
 		E515C1791D4ECF52005D606D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/glfw3/3.2/include,
+					/usr/local/Cellar/glew/1.13.0/include,
+					/usr/local/Cellar/glm/0.9.7.4/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/1.13.0/lib,
