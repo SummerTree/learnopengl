@@ -175,9 +175,10 @@ int main()
         
         
         glm::mat4 transform;
-        transform = glm::translate(transform, glm::vec3(-0.5f, 0.0, 0.0f));
+        
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
         transform = glm::rotate(transform, (GLfloat)glfwGetTime() * 5.0f, glm::vec3(0.0f, 0.0f, 1.0f));
-
+        
         GLint transformLocation = glGetUniformLocation(ourShader.program, "transform");
         glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(transform));
                                 
@@ -185,6 +186,15 @@ int main()
         // Draw container
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        
+        glm::mat4 transform2;
+        transform2 = glm::translate(transform2, glm::vec3(-0.5f, 0.5f, 0.0f));
+        transform2 = glm::scale(transform2, glm::vec3(fabs(sin(glfwGetTime())), fabs(sin(glfwGetTime())), 0.0f));
+        glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(transform2));
+                                    
+        
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        
         glBindVertexArray(0);
         
         // Swap the screen buffers
