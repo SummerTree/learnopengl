@@ -8,8 +8,10 @@ out vec4 color;
 uniform sampler2D ourTexture1;
 uniform sampler2D ourTexture2;
 
+uniform float percent;
+
 void main()
 {
     // Linearly interpolate between both textures (second texture is only slightly combined)
-    color = mix(texture(ourTexture1, TexCoord), texture(ourTexture2, vec2(1.0 - TexCoord.x, 1.0 - TexCoord.y)), 0.9);
+    color = mix(texture(ourTexture1, TexCoord), texture(ourTexture2, vec2(1.0 - TexCoord.x, 1.0 - TexCoord.y)), percent);
 }

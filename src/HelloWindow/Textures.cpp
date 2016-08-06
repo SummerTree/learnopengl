@@ -20,6 +20,8 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
 
+static GLint percent = 50;
+
 // The MAIN function, from here we start the application and run the game loop
 int main()
 {
@@ -134,6 +136,11 @@ int main()
     glBindTexture(GL_TEXTURE_2D, 0);
     
     
+    // Activate shader
+    ourShader.use();
+    
+    GLuint percentLocation = glGetUniformLocation(ourShader.program, "percent");
+    
     // Game loop
     while (!glfwWindowShouldClose(window))
     {
@@ -145,8 +152,7 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // Activate shader
-        ourShader.use();
+        glUniform1f(percentLocation, percent/100.0);
         
         // Bind Textures using texture units
         glActiveTexture(GL_TEXTURE0);
@@ -176,6 +182,11 @@ int main()
 // Is called whenever a key is pressed/released via GLFW
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, GL_TRUE);
+    } else if (key == GLFW_KEY_DOWN && action == GLFW_PRESS) {
+        percent--;
+    } else if (key == GLFW_KEY_UP && action == GLFW_PRESS) {
+        percent++;
+    }
 }
